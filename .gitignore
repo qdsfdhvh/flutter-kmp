@@ -1,0 +1,50 @@
+# generated files
+bin/
+gen/
+out/
+build/
+
+# Eclipse project files
+.classpath
+.project
+
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle.kts
+*.iml
+.idea/*
+!.idea/copyright
+!.idea/codeInsightSettings.xml
+# Keep the code styles.
+!/.idea/codeStyles
+/.idea/codeStyles/*
+!/.idea/codeStyles/Project.xml
+!/.idea/codeStyles/codeStyleConfig.xml
+!/.idea/icon*.svg
+!/.idea/vcs.xml
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Gradle cache
+.gradle
+
+# Sandbox stuff
+_sandbox
+
+# Android Studio captures folder
+captures/
+Footer
+.externalNativeBuild
+.cxx
+
+# iOS
+.DS_Store
+xcuserdata
+DerivedData
+
+# Publish
+publish.properties
+*.gpg
+
+# Moko
+moko-resources-generated.js
