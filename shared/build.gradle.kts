@@ -8,7 +8,6 @@ plugins {
 
 kotlin {
     androidTarget()
-    // jvm()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -26,10 +25,6 @@ kotlin {
 
                 val flutterEngineVersion = "fb483d79c8b3d89555d8c876058d6d4b862d31fd"
                 compileOnly("io.flutter:flutter_embedding_debug:1.0.0-$flutterEngineVersion")
-                compileOnly("io.flutter:arm64_v8a_debug:1.0.0-$flutterEngineVersion")
-                compileOnly("io.flutter:armeabi_v7a_debug:1.0.0-$flutterEngineVersion")
-                compileOnly("io.flutter:x86_64_debug:1.0.0-$flutterEngineVersion")
-                compileOnly("io.flutter:x86_debug:1.0.0-$flutterEngineVersion")
             }
         }
         val iosX64Main by getting
