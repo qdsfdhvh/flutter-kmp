@@ -47,17 +47,12 @@ kotlin {
         homepage = "Link to the Shared Module homepage"
         version = "1.0"
         ios.deploymentTarget = "14.1"
-        // podfile = project.file("../iosApp/Podfile")
+        podfile = project.file("../flutter_ui/ios/Podfile")
         framework {
             baseName = "shared"
             isStatic = true
         }
-        specRepos {
-            url("https://cdn.cocoapods.org/")
-        }
-        pod(
-            name = "Flutter",
-        )
+        pod("Flutter")
     }
 }
 

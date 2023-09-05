@@ -1,0 +1,23 @@
+PODS:
+  - Flutter (3.0.0)
+  - shared (1.0):
+    - Flutter
+
+DEPENDENCIES:
+  - shared (from `../../shared`)
+
+SPEC REPOS:
+  trunk:
+    - Flutter
+
+EXTERNAL SOURCES:
+  shared:
+    :path: "../../shared"
+
+SPEC CHECKSUMS:
+  Flutter: aef388869c2d2beecc8df50c818fa66e9c6eb1fb
+  shared: 8ca0f22df00a8a3bccd69b336db0fb52174c5fc5
+
+PODFILE CHECKSUM: 7db1b2c1d7a024828ab4241a155f785903cf0366
+
+COCOAPODS: 1.12.1
