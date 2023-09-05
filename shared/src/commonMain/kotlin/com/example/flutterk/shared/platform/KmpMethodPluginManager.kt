@@ -21,7 +21,7 @@ internal object KmpMethodPluginManager {
     }
 
     init {
-        // TODO di plugins
+        // TODO: di plugins
         register(PlatformStringPlugin())
     }
 }
