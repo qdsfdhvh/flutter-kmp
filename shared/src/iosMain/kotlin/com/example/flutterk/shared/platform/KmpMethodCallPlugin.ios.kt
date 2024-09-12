@@ -2,9 +2,7 @@ package com.example.flutterk.shared.platform
 
 import cocoapods.Flutter.FlutterMethodCall
 import cocoapods.Flutter.FlutterMethodCallHandler
-import cocoapods.Flutter.FlutterMethodNotImplemented
 import cocoapods.Flutter.FlutterResult
-import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.convert
 import platform.Foundation.NSCocoaErrorDomain
 import platform.Foundation.NSError
@@ -13,19 +11,20 @@ internal fun KmpMethodCallPlugin.toIosHandler(): FlutterMethodCallHandler =
     object : FlutterMethodCallHandler {
         override fun invoke(call: FlutterMethodCall?, result: FlutterResult) {
             if (call == null) return
-            this@toIosHandler.onMethodCall(call.toKmp(), result.toKmp())
+            this@toIosHandler.onMethodCall(call, result.toKmp())
         }
     }
 
-private fun FlutterMethodCall.toKmp() = KmpMethodCall(
-    method = method,
-    arguments = arguments,
-)
+actual typealias KmpMethodCall = FlutterMethodCall
 
-@Suppress("UNREACHABLE_CODE")
-@OptIn(ExperimentalForeignApi::class)
+actual interface KmpMethodResult {
+    actual fun success(result: Any?)
+    actual fun error(errorCode: String, errorMessage: String?, errorDetails: Any?)
+    actual fun notImplemented()
+}
+
 private fun FlutterResult.toKmp() = object : KmpMethodResult {
-    override fun success(result: Any) {
+    override fun success(result: Any?) {
         this@toKmp?.invoke(result)
     }
 
@@ -43,6 +42,6 @@ private fun FlutterResult.toKmp() = object : KmpMethodResult {
     }
 
     override fun notImplemented() {
-        this@toKmp?.invoke(FlutterMethodNotImplemented)
+        this@toKmp?.invoke(cocoapods.Flutter.FlutterMethodNotImplemented)
     }
 }

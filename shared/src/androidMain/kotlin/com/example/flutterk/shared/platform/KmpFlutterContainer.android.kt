@@ -7,6 +7,11 @@ actual class KmpFlutterContainer(
     private val messenger: BinaryMessenger,
 ) {
     actual fun setMethodCall(plugin: KmpMethodCallPlugin) {
-        MethodChannel(messenger, plugin.name).setMethodCallHandler(plugin.toAndroidHandler())
+        MethodChannel(
+            messenger,
+            plugin.name,
+        ).setMethodCallHandler(
+            plugin.toAndroidHandler(),
+        )
     }
 }

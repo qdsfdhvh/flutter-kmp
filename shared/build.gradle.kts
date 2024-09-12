@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.config.LanguageFeature
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
@@ -12,14 +14,19 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
     sourceSets {
-        val commonMain by getting {
+        all {
+            languageSettings {
+                enableLanguageFeature(LanguageFeature.ExpectActualClasses.name)
+            }
+        }
+        commonMain {
             dependencies {
                 implementation(libs.sqldelight.runtime)
                 implementation(libs.sqldelight.coroutines.extensions)
                 implementation(libs.kotlinx.serialization.json)
             }
         }
-        val androidMain by getting {
+        androidMain {
             dependencies {
                 implementation(libs.sqldelight.android.driver)
 
@@ -27,14 +34,12 @@ kotlin {
                 compileOnly("io.flutter:flutter_embedding_debug:1.0.0-$flutterEngineVersion")
             }
         }
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+        iosMain {
+            all {
+                languageSettings {
+                    optIn("kotlinx.cinterop.ExperimentalForeignApi")
+                }
+            }
         }
     }
     cocoapods {

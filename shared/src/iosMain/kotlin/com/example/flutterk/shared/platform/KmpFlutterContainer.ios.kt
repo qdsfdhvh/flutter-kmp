@@ -1,16 +1,19 @@
 package com.example.flutterk.shared.platform
 
+import cocoapods.Flutter.FlutterMethodChannel
+import cocoapods.Flutter.FlutterStandardMethodCodec
 import platform.darwin.NSObject
 
 actual class KmpFlutterContainer(
     private val messenger: NSObject,
 ) {
     actual fun setMethodCall(plugin: KmpMethodCallPlugin) {
-        setMethodCall(messenger, plugin)
+        FlutterMethodChannel(
+            plugin.name,
+            messenger,
+            FlutterStandardMethodCodec.sharedInstance(),
+        ).setMethodCallHandler(
+            plugin.toIosHandler(),
+        )
     }
 }
-
-internal expect fun setMethodCall(
-    messenger: NSObject,
-    plugin: KmpMethodCallPlugin,
-)
