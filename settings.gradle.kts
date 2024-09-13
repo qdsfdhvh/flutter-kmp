@@ -4,6 +4,7 @@ pluginManagement {
         google()
         mavenCentral()
     }
+    includeBuild("build-logic")
 }
 
 @Suppress("UnstableApiUsage")
@@ -16,6 +17,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "flutterk-multiplatform"
+rootProject.name = "flutter-kmp"
 
-include(":shared")
+include(":framework:common")
+include(":framework:battery-level")

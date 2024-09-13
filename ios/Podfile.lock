@@ -1,0 +1,23 @@
+PODS:
+  - common (1.0):
+    - Flutter
+  - Flutter (3.13.0)
+
+DEPENDENCIES:
+  - common (from `../framework/common`)
+
+SPEC REPOS:
+  trunk:
+    - Flutter
+
+EXTERNAL SOURCES:
+  common:
+    :path: "../framework/common"
+
+SPEC CHECKSUMS:
+  common: 5b9db7e4466100a4bae88243256ba3df9bae6ec3
+  Flutter: 8ff16720b007bae16abfe75ef9fe3ee45ead486a
+
+PODFILE CHECKSUM: 0ff58d06806f28d24b0082ca71dabdab7266bb19
+
+COCOAPODS: 1.15.2

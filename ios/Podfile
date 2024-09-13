@@ -1,0 +1,8 @@
+target 'Runner' do
+  use_frameworks!
+  platform :ios, '15.2'
+  pod 'common', :path => '../framework/common'
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end

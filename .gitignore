@@ -8,19 +8,21 @@ build/
 .classpath
 .project
 
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
 # IDEA/Android Studio project files, because
 # the project can be imported from settings.gradle.kts
 *.iml
-.idea/*
-!.idea/copyright
-!.idea/codeInsightSettings.xml
-# Keep the code styles.
-!/.idea/codeStyles
-/.idea/codeStyles/*
-!/.idea/codeStyles/Project.xml
-!/.idea/codeStyles/codeStyleConfig.xml
-!/.idea/icon*.svg
-!/.idea/vcs.xml
+.idea/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -51,3 +53,20 @@ moko-resources-generated.js
 
 # Kotlin
 .kotlin/
+framework/*/*.podspec
+
+# Flutter
+**/doc/api/
+ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+app.*.symbols
+app.*.map.json
+/android/app/debug
+/android/app/profile
+/android/app/release
